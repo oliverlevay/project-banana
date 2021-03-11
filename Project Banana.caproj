@@ -13,6 +13,7 @@
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -59,6 +60,9 @@
     <object-folder>
         <object-type name="Banana" sid="833866174926446">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="timeAlive" sid="862354535414962" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="881491266383528">
                     <behavior id="Platform" />
@@ -366,14 +370,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="DieEvent" sid="426243431360673">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="834512740166563" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="moneyStack" sid="682262848879658">
             <plugin id="Sprite" />
             <behaviors>
@@ -442,8 +438,20 @@
         <object-type name="Music" sid="540858352498289">
             <plugin id="Audio" />
         </object-type>
+        <object-type name="Function" sid="547970597239298">
+            <plugin id="Function" />
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="UIElements" plugin-id="Sprite" sid="941106201660064">
+            <members>
+                <member>inventoryButton</member>
+                <member>inventoryHeader</member>
+                <member>inventorySquare</member>
+                <member>shopButton</member>
+            </members>
+        </family>
+    </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
     </layout-folder>
@@ -467,11 +475,14 @@
                 <roll-off-factor>1</roll-off-factor>
             </properties>
         </global-instance>
+        <global-instance type="Function" uid="63" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="coinSoundEffect.ogg" />
+    </sounds-folder>
     <music-folder>
-        <file name="bananaMusic.m4a" />
-        <file name="justinBieberMusic.m4a" />
+        <file name="justinBieberMusic.ogg" />
+        <file name="bananasInPyjamas.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">
