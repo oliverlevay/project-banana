@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Project Banana</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>3vscos6nibzpo</unique-id>
+    <saved-with-version>27900</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Banana" sid="833866174926446">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="881491266383528">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="979694820557760" speed="5">
+                    <frame duration="1" hotspotX="0.499241" hotspotY="0.499668" original-source="E:\Hämtade filer\33131_s_5_repbg.jpg">
+                        <image-point name="GunPoint" x="0.884674" y="0.313869" />
+                        <image-point name="Blood" x="0.402124" y="0.278699" />
+                        <image-point name="GunPipe" x="1.15781" y="0.280027" />
+                        <collision-poly>
+                            <point x="0.972686" y="0.300597" />
+                            <point x="0.515933" y="0.301261" />
+                            <point x="0.705615" y="0.685799" />
+                            <point x="0.872534" y="0.930989" />
+                            <point x="0.0864951" y="0.97213" />
+                            <point x="0.291351" y="0.723291" />
+                            <point x="0.0318665" y="0.499668" />
+                            <point x="0.242792" y="0.254811" />
+                            <point x="0.793627" y="0.0258794" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Platform" sid="275278451369978">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="750062654232395">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="206583984981588">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="210225523367003" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="642451887059386">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Background" sid="438825883681369">
+            <plugin id="TiledBg" />
+            <texture original-source="E:\Hämtade filer\background.png" />
+        </object-type>
+        <object-type name="YouLost" sid="861863455068693">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Coin" sid="888121638285363">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="890562893659607">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="692205610009643" speed="50">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin1.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.166667" />
+                            <point x="0.5" y="0.0333333" />
+                            <point x="0.8" y="0.2" />
+                            <point x="0.9" y="0.5" />
+                            <point x="0.8" y="0.8" />
+                            <point x="0.5" y="0.966667" />
+                            <point x="0.166667" y="0.833333" />
+                            <point x="0.0666667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin2.png">
+                        <collision-poly>
+                            <point x="0.2" y="0.2" />
+                            <point x="0.5" y="0.0333333" />
+                            <point x="0.833333" y="0.166667" />
+                            <point x="0.9" y="0.5" />
+                            <point x="0.833333" y="0.833333" />
+                            <point x="0.5" y="0.966667" />
+                            <point x="0.2" y="0.8" />
+                            <point x="0.133333" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\Coin6.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Button" sid="357916552827846">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="restartbutton" sid="846237334807148">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="847535936427843" speed="5">
+                    <frame duration="1" hotspotX="0.502222" hotspotY="0.502222" original-source="E:\Hämtade filer\restartbutton.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="969269958920488">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="CoinsText" sid="123825145042133">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ShopHeader" sid="147282185002358">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="GunButtonGraphic" sid="130270274610513">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="734935718726662" speed="5">
+                    <frame duration="1" hotspotX="0.710311" hotspotY="0.604651" original-source="E:\Hämtade filer\Project Banana\pistol.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GunButton" sid="796598179121637">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="386385452248826" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="shopButton" sid="482270785611984">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="447912335626564" speed="5">
+                    <frame duration="1" hotspotX="0.499027" hotspotY="0.505396" original-source="E:\Hämtade filer\Project Banana\shopIcon.jpg" />
+                </animation>
+                <animation framecount="1" loop="0" name="Close" pingpong="0" repeatcount="1" repeatto="0" sid="641529303223486" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\Hämtade filer\Project Banana\shopIcon.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="gunText" sid="790757820520682">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Gun" sid="628259364110542">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="997318441830392" speed="5">
+                    <frame duration="1" hotspotX="0.255319" hotspotY="0.607558" original-source="E:\Hämtade filer\Project Banana\pistol.png">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blood" sid="743948718058725">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="448598161768048" speed="5">
+                    <frame duration="1" hotspotX="0.521538" hotspotY="0.732102" original-source="E:\Hämtade filer\Project Banana\blood.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Enemy" sid="467148813609812">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="474609615078105" speed="1">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="3" loop="0" name="Death" pingpong="0" repeatcount="1" repeatto="0" sid="190133232286807" speed="1">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Enemy2" sid="916318708717930">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="770915825970162">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="282495797514694">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="481951476993578" speed="5">
+                    <frame duration="1" hotspotX="0.425926" hotspotY="0.566667" original-source="E:\Hämtade filer\Project Banana\enemy2.jpg">
+                        <image-point name="Imagepoint 1" x="0.407407" y="0.126667" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Bullet" sid="899891037266494">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="924760370528193">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="140570731797015">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="553386960105862" speed="5">
+                    <frame duration="1" hotspotX="0.00333333" hotspotY="0.530612" original-source="E:\Hämtade filer\Project Banana\Bullet.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="EnemyBlood" sid="443999567400704">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="670117619433894" speed="5">
+                    <frame duration="1" hotspotX="0.521538" hotspotY="0.732102" original-source="E:\Hämtade filer\Project Banana\blood.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Inventory" sid="727747610638174">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="inventorySquare" sid="730945334255525">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="739876443947891">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="418082886547587" speed="0">
+                    <frame duration="1" hotspotX="0.0217391" hotspotY="0.0222222" original-source="E:\Hämtade filer\Project Banana\inventorySquare.jpg" />
+                    <frame duration="1" hotspotX="0.0217391" hotspotY="0.0222222" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="inventoryButton" sid="787804339723548">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="376627651409741" speed="5">
+                    <frame duration="1" hotspotX="0.494966" hotspotY="0.494908" original-source="E:\Hämtade filer\Project Banana\inventoryButton.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InventoryTopLeftCorner" sid="306567630257604">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="613968632163901" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="inventoryHeader" sid="348309042126467">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="426625672182135">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="309707647465840" speed="5">
+                    <frame duration="1" hotspotX="0.510526" hotspotY="0.58" original-source="E:\Hämtade filer\Project Banana\inventoryHeader.png">
+                        <image-point name="Imagepoint 1" x="0.0578947" y="0.98" />
+                        <collision-poly>
+                            <point x="0.0473684" y="0.18" />
+                            <point x="0.5" y="0.12" />
+                            <point x="0.957895" y="0.16" />
+                            <point x="0.989474" y="0.5" />
+                            <point x="0.989474" y="0.96" />
+                            <point x="0.5" y="0.98" />
+                            <point x="0.0421053" y="0.84" />
+                            <point x="0.0157895" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InventoryCloseButton" sid="286654277906005">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="929808993345086">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496173503124831" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Console" sid="292017929201228">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="InventoryEquipEvent" sid="705087498007703">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="425651064445145" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="DieEvent" sid="426243431360673">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="834512740166563" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="moneyStack" sid="682262848879658">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="128442981380507">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="133372049692438">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="700574375750446" speed="5">
+                    <frame duration="1" hotspotX="0.527578" hotspotY="0.485075" original-source="E:\Hämtade filer\Project Banana\moneyStack.jpg">
+                        <collision-poly>
+                            <point x="0.0167866" y="0.600747" />
+                            <point x="0.211031" y="0.29291" />
+                            <point x="0.844125" y="0" />
+                            <point x="0.971223" y="0.5" />
+                            <point x="0.330935" y="0.906716" />
+                            <point x="0.0695444" y="0.988806" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BloodSplatter" sid="944493298072970">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="692319569039651" speed="5">
+                    <frame duration="1" hotspotX="0.166667" hotspotY="0.607345" original-source="E:\Hämtade filer\Project Banana\bloodSplatter.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InvisibleWall" sid="567602844432943">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="590473267330219">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="484639367655634" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WinTrigger" sid="122877122733804">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="623259635689733" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WinText" sid="884218447946353">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="UiBackground" sid="666594936959684">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="901770288648934" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Music" sid="540858352498289">
+            <plugin id="Audio" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="2" />
+        <global-instance type="Mouse" uid="9" />
+        <global-instance type="Music" uid="62">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder />
+    <music-folder>
+        <file name="bananaMusic.m4a" />
+        <file name="justinBieberMusic.m4a" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
