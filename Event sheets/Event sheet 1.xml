@@ -8,7 +8,7 @@
         <variable constant="0" name="LatestCoinPosX" sid="553562112249441" static="0" type="number">-1</variable>
         <variable constant="0" name="LatestCoinPosY" sid="252508295066330" static="0" type="number">0</variable>
         <variable constant="1" name="GUN_PRICE" sid="509796138482127" static="0" type="number">400</variable>
-        <variable constant="0" name="Money" sid="457888830444948" static="0" type="number">500</variable>
+        <variable constant="0" name="Money" sid="457888830444948" static="0" type="number">0</variable>
         <event-group description="Game logic and UI" sid="576204403206687" title="Game Logic">
             <sub-events>
                 <event-group description="" sid="331260275517950" title="UI">
