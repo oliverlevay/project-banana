@@ -1150,11 +1150,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5031.170898438</x>
+                        <x>5175.471679688</x>
                         <y>268.167572021</y>
                         <z>0</z>
-                        <width>113.397369385</width>
-                        <height>21.87361145</height>
+                        <width>402</width>
+                        <height>22</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1240,8 +1240,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4943</x>
-                        <y>201</y>
+                        <x>5147</x>
+                        <y>204</y>
                         <z>0</z>
                         <width>78.370910645</width>
                         <height>78.370910645</height>
@@ -1302,6 +1302,10 @@
                     </properties>
                     <instance-variables>
                         <timeAlive>0</timeAlive>
+                        <velocityX>0</velocityX>
+                        <velocityY>0</velocityY>
+                        <lastPosX>0</lastPosX>
+                        <lastPosY>0</lastPosY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -1322,8 +1326,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>202</x>
-                        <y>352</y>
+                        <x>4860</x>
+                        <y>146</y>
                         <z>0</z>
                         <width>62.292152405</width>
                         <height>140.942886353</height>
@@ -1593,6 +1597,28 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="MuzzleFlash" uid="64">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4776.692382813</x>
+                        <y>499.297119141</y>
+                        <z>0</z>
+                        <width>41.74124527</width>
+                        <height>26.198125839</height>
+                        <depth>0</depth>
+                        <hotspotX>0.035526317</hotspotX>
+                        <hotspotY>0.519916117</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -1637,7 +1663,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Ui" sid="722358410969637">
+        <layer name="UI" sid="722358410969637">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>

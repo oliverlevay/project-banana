@@ -62,6 +62,10 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="timeAlive" sid="862354535414962" type="number" />
+                <instance-variable name="velocityX" sid="428125717852211" type="number" />
+                <instance-variable name="velocityY" sid="633131485312490" type="number" />
+                <instance-variable name="lastPosX" sid="478615275020188" type="number" />
+                <instance-variable name="lastPosY" sid="631901727318371" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="881491266383528">
@@ -74,6 +78,26 @@
                         <image-point name="GunPoint" x="0.884674" y="0.313869" />
                         <image-point name="Blood" x="0.402124" y="0.278699" />
                         <image-point name="GunPipe" x="1.15781" y="0.280027" />
+                        <image-point name="ShootSelf" x="1.1305" y="0.367618" />
+                        <collision-poly>
+                            <point x="0.972686" y="0.300597" />
+                            <point x="0.515933" y="0.301261" />
+                            <point x="0.705615" y="0.685799" />
+                            <point x="0.872534" y="0.930989" />
+                            <point x="0.0864951" y="0.97213" />
+                            <point x="0.291351" y="0.723291" />
+                            <point x="0.0318665" y="0.499668" />
+                            <point x="0.242792" y="0.254811" />
+                            <point x="0.793627" y="0.0258794" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Prisoner" pingpong="0" repeatcount="1" repeatto="0" sid="638043504207179" speed="5">
+                    <frame duration="1" hotspotX="0.500759" hotspotY="0.500332" original-source="E:\Hämtade filer\Project Banana\Banana Prisoner.png">
+                        <image-point name="GunPoint" x="0.884674" y="0.313869" />
+                        <image-point name="Blood" x="0.402124" y="0.278699" />
+                        <image-point name="GunPipe" x="1.15781" y="0.280027" />
+                        <image-point name="Imagepoint 1" x="1.29287" y="0.534837" />
                         <collision-poly>
                             <point x="0.972686" y="0.300597" />
                             <point x="0.515933" y="0.301261" />
@@ -100,7 +124,10 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="210225523367003" speed="5">
+                <animation framecount="1" loop="0" name="Grass" pingpong="0" repeatcount="1" repeatto="0" sid="210225523367003" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Concrete" pingpong="0" repeatcount="1" repeatto="0" sid="134425663537501" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -210,6 +237,7 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="997318441830392" speed="5">
                     <frame duration="1" hotspotX="0.255319" hotspotY="0.607558" original-source="E:\Hämtade filer\Project Banana\pistol.png">
+                        <image-point name="Imagepoint 1" x="0.99018" y="0.0726744" />
                         <collision-poly>
                             <point x="1" y="1" />
                             <point x="0" y="1" />
@@ -299,8 +327,9 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="418082886547587" speed="0">
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="418082886547587" speed="0">
                     <frame duration="1" hotspotX="0.0217391" hotspotY="0.0222222" original-source="E:\Hämtade filer\Project Banana\inventorySquare.jpg" />
+                    <frame duration="1" hotspotX="0.0217391" hotspotY="0.0222222" />
                     <frame duration="1" hotspotX="0.0217391" hotspotY="0.0222222" />
                 </animation>
             </animation-folder>
@@ -441,6 +470,64 @@
         <object-type name="Function" sid="547970597239298">
             <plugin id="Function" />
         </object-type>
+        <object-type name="MuzzleFlash" sid="578348524069792">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="151129374571478" speed="5">
+                    <frame duration="1" hotspotX="0.0355263" hotspotY="0.519916" original-source="E:\Hämtade filer\Project Banana\Muzzle Flash.png">
+                        <collision-poly>
+                            <point x="0.132895" y="0.21174" />
+                            <point x="0.498684" y="0.461216" />
+                            <point x="0.585526" y="0.498952" />
+                            <point x="0.498684" y="0.566038" />
+                            <point x="0.240789" y="0.614256" />
+                            <point x="0.0407895" y="0.498952" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Background2" sid="865010996272073">
+            <plugin id="TiledBg" />
+            <texture original-source="E:\Hämtade filer\background.png" />
+        </object-type>
+        <object-type name="TiledBackground" sid="917708687824320">
+            <plugin id="TiledBg" />
+            <texture original-source="E:\Hämtade filer\Project Banana\Background 2.jpg" />
+        </object-type>
+        <object-type name="Sawnoff" sid="186674288302365">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="868663791687773" speed="5">
+                    <frame duration="1" hotspotX="0.122449" hotspotY="0.586667" original-source="E:\Hämtade filer\Project Banana\Sawnoff.jpg">
+                        <image-point name="Imagepoint 1" x="0.992347" y="0.286667" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SawnoffGraphic" sid="462085758702805">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="297720114604030" speed="5">
+                    <frame duration="1" hotspotX="0.877551" hotspotY="0.586667" original-source="E:\Hämtade filer\Project Banana\Sawnoff.jpg">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ShotgunButton" sid="465660684809264">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="451219257159499" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="UIElements" plugin-id="Sprite" sid="941106201660064">
@@ -451,12 +538,29 @@
                 <member>shopButton</member>
             </members>
         </family>
+        <family name="ShopSprites" plugin-id="Sprite" sid="790988191000006">
+            <members>
+                <member>GunButton</member>
+                <member>GunButtonGraphic</member>
+                <member>SawnoffGraphic</member>
+                <member>ShotgunButton</member>
+            </members>
+        </family>
+        <family name="ShopText" plugin-id="Text" sid="281847155376892">
+            <members>
+                <member>gunText</member>
+                <member>ShopHeader</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
+        <layout>Layout 2.xml</layout>
     </layout-folder>
     <event-folder>
+        <event-sheet>Common Sheet.xml</event-sheet>
         <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Event sheet 2.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="2" />
@@ -479,10 +583,14 @@
     </global-instances>
     <sounds-folder>
         <file name="coinSoundEffect.ogg" />
+        <file name="pistolSoundEffect.ogg" />
+        <file name="sawnoffSoundEffect.ogg" />
+        <file name="pistolShootYourself.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="justinBieberMusic.ogg" />
         <file name="bananasInPyjamas.ogg" />
+        <file name="prisonTheme.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

@@ -1,0 +1,1170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Common Sheet</name>
+    <events>
+        <variable constant="0" name="EquippedItem" sid="830090866281957" static="0" type="number">0</variable>
+        <variable constant="0" name="UiVisible" sid="927954929160038" static="0" type="number">0</variable>
+        <variable constant="0" name="LatestCoinPosX" sid="553562112249441" static="0" type="number">-1</variable>
+        <variable constant="0" name="LatestCoinPosY" sid="252508295066330" static="0" type="number">0</variable>
+        <variable constant="1" name="GUN_PRICE" sid="509796138482127" static="0" type="number">400</variable>
+        <variable constant="1" name="SHOTGUN_PRICE" sid="652298761394758" static="0" type="number">600</variable>
+        <variable constant="0" name="Money" sid="457888830444948" static="0" type="number">0</variable>
+        <event-group description="Game logic and UI" sid="576204403206687" title="Game Logic">
+            <sub-events>
+                <event-group description="" sid="331260275517950" title="UI">
+                    <sub-events>
+                        <event-block sid="848227417096969">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="202540111308321" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="631443202983321" type="InventoryCloseButton">
+                                    <param id="0" name="Pin to">inventoryHeader</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="671245149729667" type="InventoryEquipEvent" />
+                                <action id="33" name="Stop all" sid="274837698387483" type="Music" />
+                                <action id="4" name="Preload" sid="394367158837217" type="Music">
+                                    <param id="0" name="Audio file">justinBieberMusic</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="958587818799322">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="314483844713262" type="Keyboard">
+                                    <param id="0" name="Key">67</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set visible" sid="769419091214228" type="Console">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-group description="" sid="915485537681948" title="Inventory">
+                            <sub-events>
+                                <event-block sid="580397526442555">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="299911034308048" type="InventoryEquipEvent" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="886545708947598">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="237340943727471" type="System">
+                                                    <param id="0" name="Variable">EquippedItem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="248404576249535" type="Gun">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="457713133525056" type="InventoryEquipEvent" />
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="715822369555394">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="571226035615269" type="System">
+                                                    <param id="0" name="Variable">EquippedItem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="956591087433995" type="Sawnoff">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="735791034409071" type="InventoryEquipEvent" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="480875079784807">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="776799721152512" type="InventoryEquipEvent" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="786563422565183">
+                                            <conditions>
+                                                <condition id="-14" inverted="1" name="Compare variable" sid="128744180854496" type="System">
+                                                    <param id="0" name="Variable">EquippedItem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="764285883542644" type="Gun">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="754238485348742" type="InventoryEquipEvent" />
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="710481670417500">
+                                            <conditions>
+                                                <condition id="-14" inverted="1" name="Compare variable" sid="351938233227282" type="System">
+                                                    <param id="0" name="Variable">EquippedItem</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="573497137881969" type="Sawnoff">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="383046701005744" type="InventoryEquipEvent" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="409669996614499">
+                                    <conditions>
+                                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="309423170043533" type="inventoryHeader" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set position to another object" sid="819392780246814" type="InventoryTopLeftCorner">
+                                            <param id="0" name="Object">inventoryHeader</param>
+                                            <param id="1" name="Image point (optional)">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="379294894153822">
+                                    <conditions>
+                                        <condition behavior="DragDrop" id="2" name="On drop" sid="729002106153388" type="inventoryHeader" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set position to another object" sid="221298503359507" type="InventoryTopLeftCorner">
+                                            <param id="0" name="Object">inventoryHeader</param>
+                                            <param id="1" name="Image point (optional)">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="285732920617891">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="132969653441964" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">InventoryCloseButton</param>
+                                        </condition>
+                                        <condition id="-9" name="Is visible" sid="672376707239313" type="inventoryHeader" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="876019227313363" type="inventoryHeader">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="891700224594878" type="shopButton">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="216319603311062" type="inventoryButton">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="128625525749059" type="inventorySquare" />
+                                        <action id="-9" name="Set value" sid="961457048580467" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="859589654808769">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="646575386606951" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">inventorySquare</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="730350764153915" type="System">
+                                            <param id="0" name="Variable">EquippedItem</param>
+                                            <param id="1" name="Value">inventorySquare.AnimationFrame</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="171827145006273" type="System">
+                                            <param id="0" name="Object to create">InventoryEquipEvent</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="239059259070739">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="500552717748009" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">inventoryButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="221265009517882" type="inventoryHeader">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="607301717847371" type="shopButton">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="811114648616853" type="inventoryButton">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="846685978847180" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="589433369726785">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="561500803982469" type="System">
+                                                    <param id="0" name="Name">&quot;inventoryX&quot;</param>
+                                                    <param id="1" name="Start index">0</param>
+                                                    <param id="2" name="End index">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="546954081516834">
+                                                    <conditions>
+                                                        <condition id="-10" name="For" sid="808346712858296" type="System">
+                                                            <param id="0" name="Name">&quot;inventoryY&quot;</param>
+                                                            <param id="1" name="Start index">0</param>
+                                                            <param id="2" name="End index">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Create object" sid="199276644253312" type="System">
+                                                            <param id="0" name="Object to create">inventorySquare</param>
+                                                            <param id="1" name="Layer">4</param>
+                                                            <param id="2" name="X">InventoryTopLeftCorner.X + loopindex(&quot;inventoryX&quot;) * 42</param>
+                                                            <param id="3" name="Y">InventoryTopLeftCorner.Y + loopindex(&quot;inventoryY&quot;) * 42</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="988706558407655" type="inventorySquare">
+                                                            <param id="0" name="Pin to">inventoryHeader</param>
+                                                            <param id="1" name="Mode">0</param>
+                                                        </action>
+                                                        <action id="5" name="Set frame" sid="460173907868434" type="inventorySquare">
+                                                            <param id="0" name="Frame number">Inventory.At(loopindex(&quot;inventoryX&quot;), loopindex(&quot;inventoryY&quot;))</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="150719735837078" title="Shop">
+                            <sub-events>
+                                <event-block sid="698218982112609">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="757231240504005" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">shopButton</param>
+                                        </condition>
+                                        <condition id="-9" inverted="1" name="Is visible" sid="217212984132802" type="ShopHeader" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="687060729461785" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="495884572802472" type="ShopSprites">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="196709086433449" type="ShopText">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="159669892398790" type="shopButton">
+                                            <param id="0" name="Animation">&quot;Close&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="111732244590587" type="inventoryButton">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="374339658831307" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="795138251429383">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="839430353469026" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">shopButton</param>
+                                        </condition>
+                                        <condition id="-9" name="Is visible" sid="803144862392115" type="ShopHeader" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="606172546420522" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="691616822003829" type="ShopSprites">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="325013478761416" type="ShopText">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="471802513751570" type="shopButton">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="947550688110618" type="inventoryButton">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="231544194605107" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="709026468032134">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="325213794491926" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">ShotgunButton</param>
+                                        </condition>
+                                        <condition id="-9" name="Is visible" sid="396876386836502" type="ShotgunButton" />
+                                        <condition id="-14" name="Compare variable" sid="151187938813122" type="System">
+                                            <param id="0" name="Variable">Money</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SHOTGUN_PRICE</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="135321272557184" type="System">
+                                            <param id="0" name="Variable">Money</param>
+                                            <param id="1" name="Value">SHOTGUN_PRICE</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="565947225471518" type="ShopSprites">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="685803265077249" type="ShopText">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="632766556064265" type="Sawnoff">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="196060207847794" type="shopButton">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="222188242947058" type="Inventory">
+                                            <param id="0" name="X">1</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="944749866399714" type="inventoryButton">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="168794191369210" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="288465758825107" type="System">
+                                            <param id="0" name="Variable">EquippedItem</param>
+                                            <param id="1" name="Value">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="895261706487523">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="974924291022709" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">GunButton</param>
+                                        </condition>
+                                        <condition id="-9" name="Is visible" sid="347493381634826" type="GunButton" />
+                                        <condition id="-14" name="Compare variable" sid="672841067412008" type="System">
+                                            <param id="0" name="Variable">Money</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">GUN_PRICE</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="376888133150728" type="System">
+                                            <param id="0" name="Variable">Money</param>
+                                            <param id="1" name="Value">GUN_PRICE</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="715690237138732" type="ShopSprites">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="673377541369439" type="ShopText">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="363469012779152" type="Gun">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="415479721140440" type="shopButton">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="987464932301745" type="Inventory">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="519830945441351" type="inventoryButton">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="824594625310408" type="System">
+                                            <param id="0" name="Variable">UiVisible</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="441572026097906" type="System">
+                                            <param id="0" name="Variable">EquippedItem</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-block sid="455417044472467">
+                            <conditions>
+                                <condition id="-9" name="Is visible" sid="122843538829193" type="restartbutton" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="852987768371924">
+                                    <conditions>
+                                        <condition id="6" name="On object clicked" sid="292554467254939" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                            <param id="2" name="Object clicked">restartbutton</param>
+                                        </condition>
+                                        <condition id="0" name="On key pressed" sid="654768877665395" type="Keyboard">
+                                            <param id="0" name="Key">32</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-26" name="Restart layout" sid="611686828872064" type="System" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="938443304495545">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="326662151963696" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="798509073471198" type="CoinsText">
+                                    <param id="0" name="Text">&quot;Money: &quot; &amp; Money</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="Movement and events for the banana" sid="942399396580132" title="Banana">
+            <sub-events>
+                <event-block sid="524446592589053">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="837785390973125" type="Banana" />
+                        <condition id="-14" name="Compare variable" sid="255337639010162" type="System">
+                            <param id="0" name="Variable">LatestCoinPosX</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="547777812756785" type="Banana">
+                            <param id="0" name="X">LatestCoinPosX</param>
+                            <param id="1" name="Y">LatestCoinPosY</param>
+                        </action>
+                        <action id="1" name="Set size" sid="123874554807902" type="Inventory">
+                            <param id="0" name="Width">2</param>
+                            <param id="1" name="Height">2</param>
+                            <param id="2" name="Depth">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="469798015505634">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="801758176914041" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Scroll to X" sid="241844753243374" type="System">
+                            <param id="0" name="X">Banana.X</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="794218482929552" type="Gun">
+                            <param id="0" name="Object">Banana</param>
+                            <param id="1" name="Image point (optional)">1</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="151507768101348" type="Sawnoff">
+                            <param id="0" name="Object">Banana</param>
+                            <param id="1" name="Image point (optional)">1</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="988850985307634" type="Blood">
+                            <param id="0" name="Object">Banana</param>
+                            <param id="1" name="Image point (optional)">2</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="577759953870352" type="Banana">
+                            <param id="0" name="Instance variable">velocityX</param>
+                            <param id="1" name="Value">(Banana.X - Banana.lastPosX) / dt</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="509019717428821" type="Banana">
+                            <param id="0" name="Instance variable">velocityY</param>
+                            <param id="1" name="Value">(Banana.Y - Banana.lastPosY) / dt</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="688183272332544" type="Banana">
+                            <param id="0" name="Instance variable">lastPosX</param>
+                            <param id="1" name="Value">Banana.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="497808497998851" type="Banana">
+                            <param id="0" name="Instance variable">lastPosY</param>
+                            <param id="1" name="Value">Banana.Y</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="581085829144696">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Is mirrored" sid="446250738320092" type="Banana" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="871009175922814" type="Sawnoff">
+                                    <param id="0" name="Object">Banana</param>
+                                    <param id="1" name="Image point (optional)">1</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="884244606073406" type="Sawnoff">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="249813938348540">
+                            <conditions>
+                                <condition id="7" name="Is mirrored" sid="619472772526611" type="Banana" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="461949849978220" type="Sawnoff">
+                                    <param id="0" name="Object">Banana</param>
+                                    <param id="1" name="Image point (optional)">4</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="816384611082190" type="Sawnoff">
+                                    <param id="0" name="Angle">-45</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="535707592643133">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="492436854387182" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="911025502179759" type="Banana">
+                            <param id="0" name="Instance variable">timeAlive</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="999507510017007">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="720866472533952" type="Banana">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">550</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="234790792206917" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="642741231160140" type="Function">
+                            <param id="0" name="Name">&quot;Die&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="582038291406737" title="Functions">
+                    <sub-events>
+                        <event-block sid="946450294190575">
+                            <conditions>
+                                <condition id="0" name="On function" sid="502781612402163" type="Function">
+                                    <param id="0" name="Name">&quot;Die&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="503621479131601" type="Music">
+                                    <param id="0" name="Tag">&quot;main-theme&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="505035622173678" type="Music">
+                                    <param id="0" name="Audio file">justinBieberMusic</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;justinbieber&quot;</param>
+                                </action>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="584390758028390" type="Banana">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="389433182417447" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="365957865536835" type="YouLost">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="283309796943153" type="Blood">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="412311493490764" type="restartbutton">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="514833362893057">
+                            <conditions>
+                                <condition id="0" name="On function" sid="711976292090616" type="Function">
+                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="472229032935221" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="333365874860001" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="166859424572509" type="Gun">
+                                    <param id="0" name="Object">MuzzleFlash</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="951721619612676" type="Gun">
+                                    <param id="0" name="Object">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="914323817364490" type="Bullet">
+                                    <param id="0" name="Speed">Bullet.Bullet.Speed</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="391733283494845">
+                            <conditions>
+                                <condition id="0" name="On function" sid="343487398928722" type="Function">
+                                    <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="756786937097230" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="795952769277874" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="265004019303374" type="Sawnoff">
+                                    <param id="0" name="Object">MuzzleFlash</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="566360247709785" type="Sawnoff">
+                                    <param id="0" name="Object">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="959649968597241" type="Bullet">
+                                    <param id="0" name="Speed">Bullet.Bullet.Speed</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="440110877467858">
+                            <conditions>
+                                <condition id="0" name="On function" sid="191438490097234" type="Function">
+                                    <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="663965193730345" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="790513774087041" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="124190263375211" type="Sawnoff">
+                                    <param id="0" name="Object">MuzzleFlash</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="426029173106822" type="Sawnoff">
+                                    <param id="0" name="Object">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="242228254672708" type="Bullet">
+                                    <param id="0" name="Speed">Bullet.Bullet.Speed</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="194537502564576" type="Bullet">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="809732468321504" type="MuzzleFlash">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="769958704328655">
+                            <conditions>
+                                <condition id="0" name="On function" sid="744002562364563" type="Function">
+                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="875856760878565" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="352614444280820" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="693099815649249" type="Gun">
+                                    <param id="0" name="Object">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="602922130481408" type="Gun">
+                                    <param id="0" name="Object">MuzzleFlash</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="729405662907281" type="Bullet">
+                                    <param id="0" name="Speed">-1 * Bullet.Bullet.Speed</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="656568877139108" type="Bullet">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="490553108128797" type="MuzzleFlash">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="433646736940867" title="Collision">
+                    <sub-events>
+                        <event-block sid="864194207515224">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="349475478740446" type="BloodSplatter">
+                                    <param id="0" name="Object">InvisibleWall</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="490533694859904" type="InvisibleWall" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="125585768220805">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="573583030017210" type="Banana">
+                                    <param id="0" name="Object">Coin</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="858301885685996" type="Coin" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="191594436632153">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="469096820864784" type="Banana">
+                                            <param id="0" name="Instance variable">timeAlive</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0.2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="854217316498414" type="System">
+                                            <param id="0" name="Variable">Money</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="882762649210110" type="System">
+                                            <param id="0" name="Variable">LatestCoinPosX</param>
+                                            <param id="1" name="Value">Coin.X</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="916787711494199" type="System">
+                                            <param id="0" name="Variable">LatestCoinPosY</param>
+                                            <param id="1" name="Value">Coin.Y</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="724574990881874" type="Music">
+                                            <param id="0" name="Audio file">coinSoundEffect</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="498505841378947">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="547819195619920" type="Banana">
+                                    <param id="0" name="Object">moneyStack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="250655650234063" type="moneyStack" />
+                                <action id="-10" name="Add to" sid="859196556443183" type="System">
+                                    <param id="0" name="Variable">Money</param>
+                                    <param id="1" name="Value">500</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="440444673772495" title="Movement">
+                    <sub-events>
+                        <event-block sid="820355029168755">
+                            <conditions>
+                                <condition behavior="Platform" id="5" name="On jump" sid="330407519072455" type="Banana" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="660444699609547" type="Banana">
+                                    <param id="0" name="Vector X">(Banana.velocityX * 10000)+ Banana.Platform.VectorX</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="414758450858385" type="Banana">
+                                    <param id="0" name="Vector Y">Banana.velocityY + Banana.Platform.VectorY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="436463443246581">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="102050398899025" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="512015568857701" type="Console">
+                                    <param id="0" name="Text">&quot;Hastighet: &quot; &amp; Banana.velocityX</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="358698924672780">
+                            <conditions>
+                                <condition id="-9" inverted="1" name="Is visible" sid="207833254613914" type="Blood" />
+                                <condition id="-9" inverted="1" name="Is visible" sid="125569453149724" type="WinText" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="585223776071312">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="183196503247270" type="Keyboard">
+                                            <param id="0" name="Key">39</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="170352491988449" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="508226753957760" type="Banana">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="163457222996947" type="Banana">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="642446417567850">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="276974315246103" type="Keyboard">
+                                            <param id="0" name="Key">37</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="873054411299847" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="462689625358939" type="Banana">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="105513637067731" type="Banana">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="581464978972261">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="185153233905407" type="Keyboard">
+                                            <param id="0" name="Key">87</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="655957517946070" type="Banana">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="130798841488514" title="Tools">
+                    <sub-events>
+                        <event-group description="" sid="362386169965976" title="Gun">
+                            <sub-events>
+                                <event-block sid="580555697767876">
+                                    <conditions>
+                                        <condition id="0" name="On click" sid="496328455742800" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                            <param id="1" name="Click type">0</param>
+                                        </condition>
+                                        <condition id="7" inverted="1" name="Cursor is over object" sid="747153867003570" type="Mouse">
+                                            <param id="0" name="Object">UIElements</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="972883562707341">
+                                            <conditions>
+                                                <condition id="7" name="Is mirrored" sid="728606240246920" type="Banana" />
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="971249212589826">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="467412224630043" type="System">
+                                                            <param id="0" name="Variable">EquippedItem</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="492415172845050" type="Music">
+                                                            <param id="0" name="Audio file">pistolSoundEffect</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="562840273951638">
+                                                            <conditions>
+                                                                <condition id="7" name="Is mirrored" sid="844206995819939" type="Gun" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="833906703057016" type="Function">
+                                                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="891983765297198">
+                                                            <conditions>
+                                                                <condition id="7" inverted="1" name="Is mirrored" sid="904379971166020" type="Gun" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="274358791411798" type="Function">
+                                                                    <param id="0" name="Name">&quot;Die&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="598282576199974">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="614621019270828" type="System">
+                                                            <param id="0" name="Variable">EquippedItem</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="113900654041709" type="Music">
+                                                            <param id="0" name="Audio file">pistolShootYourself</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="11" name="Set enabled" sid="903512144891970" type="Banana">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="686898523881548" type="System">
+                                                            <param id="0" name="Seconds">0.8</param>
+                                                        </action>
+                                                        <action id="7" name="Set mirrored" sid="284818791339779" type="Banana">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="208441804866717" type="Function">
+                                                            <param id="0" name="Name">&quot;Die&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="852848263014936">
+                                            <conditions>
+                                                <condition id="7" inverted="1" name="Is mirrored" sid="976077688156788" type="Banana" />
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="757730120528696">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="893986047716429" type="System">
+                                                            <param id="0" name="Variable">EquippedItem</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="685529744113507" type="Music">
+                                                            <param id="0" name="Audio file">pistolSoundEffect</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="486425947556726">
+                                                            <conditions>
+                                                                <condition id="7" name="Is mirrored" sid="306730842160212" type="Gun" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="137435844569371" type="Function">
+                                                                    <param id="0" name="Name">&quot;Die&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="770520411531343">
+                                                            <conditions>
+                                                                <condition id="7" inverted="1" name="Is mirrored" sid="364663963754951" type="Gun" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="134249521588389" type="Function">
+                                                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="595595459612130">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="115939785682908" type="System">
+                                                            <param id="0" name="Variable">EquippedItem</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="497844390569690" type="Function">
+                                                            <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                                                            <param id="1" name="Parameter {n}">1</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="541252318609400" type="Music">
+                                                            <param id="0" name="Audio file">sawnoffSoundEffect</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block any="1" sid="632704531605933">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="777274230655192" type="Keyboard">
+                                            <param id="0" name="Key">40</param>
+                                        </condition>
+                                        <condition id="0" name="On key pressed" sid="487198245814267" type="Keyboard">
+                                            <param id="0" name="Key">83</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="806034885365772">
+                                            <conditions>
+                                                <condition id="7" inverted="1" name="Is mirrored" sid="557679021307855" type="Gun" />
+                                                <condition id="-9" name="Is visible" sid="858351700043061" type="Gun" />
+                                                <condition id="-9" inverted="1" name="Is visible" sid="550269048053138" type="WinText" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-16" name="Wait" sid="208517249787604" type="System">
+                                                    <param id="0" name="Seconds">0.1</param>
+                                                </action>
+                                                <action id="7" name="Set mirrored" sid="621275498685947" type="Gun">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="949223339980263">
+                                            <conditions>
+                                                <condition id="7" name="Is mirrored" sid="186862031434098" type="Gun" />
+                                                <condition id="-9" name="Is visible" sid="346273743368368" type="Gun" />
+                                                <condition id="-9" inverted="1" name="Is visible" sid="195571111959715" type="WinText" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-16" name="Wait" sid="140404032580409" type="System">
+                                                    <param id="0" name="Seconds">0.1</param>
+                                                </action>
+                                                <action id="7" name="Set mirrored" sid="705488618619650" type="Gun">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="325157112372784" title="Enemy">
+            <sub-events>
+                <event-block sid="830972508231188">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="110211918334243" type="Bullet">
+                            <param id="0" name="Object">Enemy2</param>
+                        </condition>
+                        <condition behavior="Solid" id="0" name="Is enabled" sid="823811896643119" type="Enemy2" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="253613008673596" type="EnemyBlood">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="896491105282902" type="Enemy2">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="656262708770372" type="System">
+                            <param id="0" name="Object to create">BloodSplatter</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">Bullet.X + 50</param>
+                            <param id="3" name="Y">Bullet.Y</param>
+                        </action>
+                        <action id="-25" name="Move to bottom" sid="238410071888389" type="BloodSplatter" />
+                        <action id="-9" name="Destroy" sid="162638914952096" type="Bullet" />
+                        <action id="-3" name="Create object" sid="513970605204212" type="System">
+                            <param id="0" name="Object to create">moneyStack</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">Enemy2.X</param>
+                            <param id="3" name="Y">Enemy2.Y</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="521697187791425" type="Enemy2">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="308683624832327" type="moneyStack">
+                            <param id="0" name="Vector X">((random(2) -1)) * (700 * random(5))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="780273994654138">
+            <conditions>
+                <condition id="-18" name="On created" sid="260139870435808" type="MuzzleFlash" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="111777981001627" type="System">
+                    <param id="0" name="Seconds">0.05</param>
+                </action>
+                <action id="-9" name="Destroy" sid="465379265580780" type="MuzzleFlash" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
